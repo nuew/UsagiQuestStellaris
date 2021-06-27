@@ -1,0 +1,179 @@
+usagi_quest_name_list_human = {
+    category = "Mammalian"
+
+    # To enter a name, simply put it between the brackets. Multiple names are
+    # separated by spaces. A name containing spaces should be surrounded by
+    # quotes.
+    #
+    #    generic = { Hello World "My Name Is" nuew }
+    #
+    ship_names = {
+        # Available to any ship (might or might not override other categories —
+        # it's not clear. Many of the other categories are unnecessary if it's
+        # used, and for several, there will be a default numbered name if it
+        # isn't filled in (same as if you'd run out of names)
+        generic = { A B C D E F G H I J K L M N O P Q R S T U V W X Y Z }
+
+        corvette = {}
+        destroyer = {}
+        cruiser = {}
+        battleship = {}
+        titan = {}
+        colossus = {}
+        juggernaut = {}
+
+        constructor = {}
+        colonizer = {}
+        sponsored_colonizer = {}
+        science = {}
+        transport = {}
+
+        mining_station = {}
+        research_station = {}
+        observation_station = {}
+        military_station_small = {}
+
+        ion_cannon = {}
+
+        # Used for Fallen Empires
+        small_ship_fallen_empire = {}
+        large_ship_fallen_empire = {}
+        massive_ship_fallen_empire = {}
+    }
+    # You can leave this out and it'll just use a random ship name instead.
+    #
+    # Also accepts ship class limitations in the same way as 
+    ship_class_names = {
+        generic = { A B C D E F G H I J K L M N O P Q R S T U V W X Y Z }
+    }
+
+    fleet_names = {
+        # takes names the same as in any other grouping
+        random_names = { A B C D E F G H I J K L M N O P Q R S T U V W X Y Z }
+        # Takes a string to construct a name from, with '%0%' representing the
+        # location where the number should be inserted.
+        sequential_name = "%0% Fleet"
+    }
+    # These take random_names/sequential_name the same way fleet_names does
+    army_names = {
+        machine_defense = {
+            sequential_name = "%0%"
+        }
+        machine_assault_1 = {
+            sequential_name = "%0%"
+        }
+        machine_assault_2 = {
+            sequential_name = "%0%"
+        }
+        machine_assault_3 = {
+            sequential_name = "%0%"
+        }
+        defense_army = {
+            sequential_name = "%0%"
+        }
+        assault_army = {
+            sequential_name = "%0%"
+        }
+        slave_army = {
+            sequential_name = "%0%"
+        }
+        clone_army = {
+            sequential_name = "%0%"
+        }
+        undead_army = {
+            sequential_name = "%0%"
+        }
+        robotic_army = {
+            sequential_name = "%0%"
+        }
+        robotic_defense_army = {
+            sequential_name = "%0%"
+        }
+        psionic_army = {
+            sequential_name = "%0%"
+        }
+        xenomorph_army = {
+            sequential_name = "%0%"
+        }
+        gene_warrior_army = {
+            sequential_name = "%0%"
+        }
+        occupation_army = {
+            sequential_name = "%0%"
+        }
+        robotic_occupation_army = {
+            sequential_name = "%0%"
+        }
+
+        primitive_army = {
+            sequential_name = "%0%"
+        }
+        industrial_army = {
+            sequential_name = "%0%"
+        }
+        postatomic_army = {
+            sequential_name = "%0%"
+        }
+    }
+    planet_names = {
+        generic = {
+            names = { A B C D E F G H I J K L M N O P Q R S T U V W X Y Z }
+        }
+        pc_desert = {
+            names = {}
+        }
+        pc_tropical = {
+            names = {}
+        }
+        pc_arid = {
+            names = {}
+        }
+        pc_continental = {
+            names = {}
+        }
+        pc_ocean = {
+            names = {}
+        }
+        pc_tundra = {
+            names = {}
+        }
+        pc_arctic = {
+            names = {}
+        }
+        pc_savannah = {
+            names = {}
+        }
+        pc_alpine = {
+            names = {}
+        }
+    }
+
+    character_names = {
+        # Different groups can exist to have different valid combination sets
+        # for first_names/second_names. They should have a weight for how
+        # likely they are.
+        default = {
+            # A Complete Name
+            full_names = { A B C D E F G H I J K L M N O P Q R S T U V W X Y Z }
+
+            # Always Combined
+            # first_names = {}
+            # first_names_male = {}
+            # first_names_female = {}
+            # second_names = {}
+
+            # regnal_first_names = {}
+            # regnal_first_names_male = {}
+            # regnal_first_names_female = {}
+            # regnal_second_names = {}
+        }
+    }
+
+    # character_names *probably* doesn't accept regnal_full_names, so you
+    # put those here instead.
+    ruler_names = {
+        default = {
+            full_names = { "Usagi Tsukino" }
+        }
+    }
+}
