@@ -1,4 +1,4 @@
-usagi_quest_name_list_human = {
+﻿usagi_quest_name_list_human = {
     category = "Mammalian"
 
     # To enter a name, simply put it between the brackets. Multiple names are
@@ -174,6 +174,163 @@ usagi_quest_name_list_human = {
     ruler_names = {
         default = {
             full_names = { "Usagi Tsukino" }
+        }
+    }
+}
+
+usagi_quest_name_list_mao = {
+    category = "Mammalian"
+
+    ship_names = {
+        generic = { A B C D E F G H I J K L M N O P Q R S T U V W X Y Z }
+
+        corvette = {}
+        destroyer = {}
+        cruiser = {}
+        battleship = {}
+        titan = {}
+        colossus = {}
+        juggernaut = {}
+
+        constructor = {}
+        colonizer = {}
+        sponsored_colonizer = {}
+        science = {}
+        transport = {}
+
+        mining_station = {}
+        research_station = {}
+        observation_station = {}
+        military_station_small = {}
+
+        ion_cannon = {}
+
+        # Used for Fallen Empires
+        small_ship_fallen_empire = {}
+        large_ship_fallen_empire = {}
+        massive_ship_fallen_empire = {}
+    }
+    ship_class_names = {
+        generic = { A B C D E F G H I J K L M N O P Q R S T U V W X Y Z }
+    }
+
+    fleet_names = {
+        random_names = { A B C D E F G H I J K L M N O P Q R S T U V W X Y Z }
+        sequential_name = "%0% Fleet"
+    }
+    # These take random_names/sequential_name the same way fleet_names does
+    army_names = {
+        machine_defense = {
+            sequential_name = "%0%"
+        }
+        machine_assault_1 = {
+            sequential_name = "%0%"
+        }
+        machine_assault_2 = {
+            sequential_name = "%0%"
+        }
+        machine_assault_3 = {
+            sequential_name = "%0%"
+        }
+        defense_army = {
+            sequential_name = "%0%"
+        }
+        assault_army = {
+            sequential_name = "%0%"
+        }
+        slave_army = {
+            sequential_name = "%0%"
+        }
+        clone_army = {
+            sequential_name = "%0%"
+        }
+        undead_army = {
+            sequential_name = "%0%"
+        }
+        robotic_army = {
+            sequential_name = "%0%"
+        }
+        robotic_defense_army = {
+            sequential_name = "%0%"
+        }
+        psionic_army = {
+            sequential_name = "%0%"
+        }
+        xenomorph_army = {
+            sequential_name = "%0%"
+        }
+        gene_warrior_army = {
+            sequential_name = "%0%"
+        }
+        occupation_army = {
+            sequential_name = "%0%"
+        }
+        robotic_occupation_army = {
+            sequential_name = "%0%"
+        }
+
+        primitive_army = {
+            sequential_name = "%0%"
+        }
+        industrial_army = {
+            sequential_name = "%0%"
+        }
+        postatomic_army = {
+            sequential_name = "%0%"
+        }
+    }
+    planet_names = {
+        generic = {
+            names = { A B C D E F G H I J K L M N O P Q R S T U V W X Y Z }
+        }
+        pc_desert = {
+            names = {}
+        }
+        pc_tropical = {
+            names = {}
+        }
+        pc_arid = {
+            names = {}
+        }
+        pc_continental = {
+            names = {}
+        }
+        pc_ocean = {
+            names = {}
+        }
+        pc_tundra = {
+            names = {}
+        }
+        pc_arctic = {
+            names = {}
+        }
+        pc_savannah = {
+            names = {}
+        }
+        pc_alpine = {
+            names = {}
+        }
+    }
+
+    character_names = {
+        default = {
+            full_names = { A B C D E F G H I J K L M N O P Q R S T U V W X Y Z }
+
+            # first_names = {}
+            # first_names_male = {}
+            # first_names_female = {}
+            # second_names = {}
+
+            # regnal_first_names = {}
+            # regnal_first_names_male = {}
+            # regnal_first_names_female = {}
+            # regnal_second_names = {}
+        }
+    }
+
+    ruler_names = {
+        default = {
+            full_names = { }
         }
     }
 }

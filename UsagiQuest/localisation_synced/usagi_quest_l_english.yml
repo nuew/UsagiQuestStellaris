@@ -1,5 +1,9 @@
 ﻿l_default:
+ NAME_usagi_quest_mao: "Mao"
+ usagi_quest_mao_adj: "Mao"
+
  NAME_usagi_quest_pluto: "Pluto"
  NAME_usagi_quest_earth_kingdom: "Earth Kingdom"
  NAME_usagi_quest_silver_empire: "Silver Empire"
  usagi_quest_silver_empire_adj: "Silver Imperial"
+ NAME_usagi_quest_mao_kingdom: "Mao Kingdom"

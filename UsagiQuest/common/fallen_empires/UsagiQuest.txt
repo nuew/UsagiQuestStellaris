@@ -30,7 +30,7 @@ usagi_quest_fallen_empire = {
             adjective = "usagi_quest_silver_empire_adj"
             type = fallen_empire
 
-            name_list = "usagi_quest_name_list"
+            name_list = "usagi_quest_name_list_human"
             ship_prefix = ""
 
             authority = auth_imperial
@@ -67,7 +67,6 @@ usagi_quest_fallen_empire = {
                     food = 1000
                     influence = 500
                 }
-                country_admin_cap_add = 200
 
                 # TODO initialize global designs here
             }

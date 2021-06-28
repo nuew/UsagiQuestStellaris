@@ -138,7 +138,7 @@ usagi_quest_sol_system_initializer = {
                                 adjective = "NAME_usagi_quest_earth_kingdom"
                                 type = default
 
-                                name_list = "usagi_quest_name_list"
+                                name_list = "usagi_quest_name_list_human"
                                 ship_prefix = "EKS"
 
                                 authority = auth_imperial
@@ -162,7 +162,7 @@ usagi_quest_sol_system_initializer = {
                                 }
                         } 
 
-                        set_planet_flag = fallen_empire_world
+                        prevent_anomaly = yes
                         set_owner = last_created_country
                         set_controller = last_created_country
                         set_capital = yes
@@ -173,7 +173,6 @@ usagi_quest_sol_system_initializer = {
                                         species = owner_main_species
                                 }
                         }
-
                         while = {
                                 count = 6
                                 add_district = district_city
@@ -181,12 +180,17 @@ usagi_quest_sol_system_initializer = {
                                 add_district = district_farming
                         }
 
-                        add_building = building_ancient_palace
+                        add_building = building_system_capital
+                        add_building = building_noble_estates
                         add_building = building_stronghold
                         add_building = building_urban_dwellings
                         add_building = building_urban_dwellings
                         add_building = building_primitive_dwellings
                         add_building = building_primitive_dwellings
+
+                        owner_main_species = {
+                                set_species_homeworld = PREV
+                        }
                 }
 
 		moon = {
@@ -246,6 +250,11 @@ usagi_quest_sol_system_initializer = {
                                 }
 
                                 create_fallen_empire_starting_navy = yes
+                                add_modifier = {
+                                    modifier = country_admin_cap_mult
+                                    multiplier = 2
+                                    clear_on_owner_change = yes
+                                }
                         }
 		}
 	}
@@ -528,7 +537,7 @@ usagi_quest_sol_system_initializer = {
 			size = 6
 			orbit_distance = 7
 			orbit_angle = 115
-			has_ring = n
+			has_ring = no
 		        deposit_blockers = none
 
                         init_effect = {
@@ -685,10 +694,20 @@ usagi_quest_sol_neighbor_t1a = {
 	}
 }
 
-# Sol Neighbor Tier 1b 
+# Sol Neighbor Tier 1b - Mao
 usagi_quest_sol_neighbor_t1b = {
 	name = "NAME_Alpha_Centauri"
 	class = sc_trinary_1
+
+	init_effect = {
+		every_neighbor_system = {
+			set_star_flag = empire_cluster
+			every_neighbor_system = {
+				set_star_flag = empire_cluster
+			}
+		}
+		generate_home_system_resources = yes
+	}
 
 	planet = {
 		name = "NAME_Alpha_Centauri_A"
@@ -704,7 +723,7 @@ usagi_quest_sol_neighbor_t1b = {
 		name = "NAME_Alpha_Centauri_B"
 		count = 1
 		class = pc_k_star
-		orbit_distance = 320
+		orbit_distance = 260
 		orbit_angle = 40
 		size = 27
 		has_ring = no
@@ -713,7 +732,7 @@ usagi_quest_sol_neighbor_t1b = {
 			name = "NAME_Alpha_Centauri_B_I"
 			class = pc_molten
 			size = 18
-			orbit_distance = 65
+			orbit_distance = 35
 		}
 		planet = {
 			name = "NAME_Alpha_Centauri_B_II"
@@ -735,7 +754,6 @@ usagi_quest_sol_neighbor_t1b = {
 		name = "NAME_Proxima_Centauri"
 		count = 1
 		class = pc_m_star
-		orbit_distance = 35
 		orbit_angle = 130
 		size = 15
 		has_ring = no
@@ -755,7 +773,7 @@ usagi_quest_sol_neighbor_t1b = {
 		}
 	}
 
-	change_orbit = -320
+	change_orbit = -260
 
 	planet = {
 		count = 2
@@ -772,12 +790,81 @@ usagi_quest_sol_neighbor_t1b = {
 	planet = {
 		count = 1
 		orbit_distance = 30
+		class = pc_continental
 		orbit_angle = { min = 90 max = 270 }
-		size = { min = 12 max = 18 }
+		size = { min = 14 max = 22 }
+
+                init_effect = {
+                        generate_empire_home_planet = yes
+
+                        create_species = {
+                                name = "NAME_usagi_quest_mao"
+                                adjective = "usagi_quest_mao_adj"
+                                namelist = "usagi_quest_name_list_mao"
+                        
+                                class = "MAM"
+                                portrait = random
+
+                                traits = random
+                                allow_negative_traits = no
+                                extra_trait_points = 0
+                        }
+                        create_country = {
+                                name = "NAME_usagi_quest_mao_kingdom"
+                                adjective = "NAME_usagi_quest_mao_kingdom"
+                                type = default
+
+                                name_list = "usagi_quest_name_list_mao"
+                                ship_prefix = "EKS"
+
+                                authority = auth_imperial
+                                species = last_created_species
+                                origin = origin_default
+                                civics = random
+                                ethos = random
+                                flag = random
+
+                                effect = {
+                                        set_subject_of = {
+                                                who = root
+                                                subject_type = protectorate
+                                        }
+                                }
+                        } 
+
+                        prevent_anomaly = yes
+                        set_owner = last_created_country
+                        set_controller = last_created_country
+                        set_capital = yes
+
+                        while = {
+                                count = 20
+                                create_pop = {
+                                        species = owner_main_species
+                                }
+                        }
+                        while = {
+                                count = 3
+                                add_district = district_city
+                                add_district = district_city
+                                add_district = district_generator
+                                add_district = district_mining
+                                add_district = district_farming
+                        }
+
+                        add_building = building_system_capital
+                        add_building = building_noble_estates
+                        add_building = building_stronghold
+
+                        owner_main_species = {
+                                set_species_homeworld = PREV
+                        }
+                }
+
 	}
 
 	planet = {
-		count = 3
+		count = 2
 		orbit_distance = 25
 
 		change_orbit = @base_moon_distance
@@ -793,7 +880,6 @@ usagi_quest_sol_neighbor_t1b = {
 		initializer = "usagi_quest_sol_neighbor_t2b"
 	}
 }
-
 
 # Sol Neighbor Tier 2
 usagi_quest_sol_neighbor_t2a = {
