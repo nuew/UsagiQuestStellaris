@@ -1,0 +1,33 @@
+usagi_quest_subject = {
+    can_expand = no
+    can_be_integrated = no
+
+    research_agreement = yes
+    research_sharing = yes
+
+    joins_overlord_wars = no
+    calls_overlord_to_war = yes
+    can_do_diplomacy = no
+
+    gets_sensor = yes
+    gets_access = yes
+
+    intel_from_being_subject = 40
+    intel_from_being_overlord = 100
+
+    diplo_threat = 0.75
+
+    potential = {
+        is_country_type = default
+        from = {
+            OR = {
+                is_country_type = fallen_empire
+                is_country_type = awakened_fallen_empire
+            }
+            has_country_flag = fallen_empire_usagi            
+        }
+        has_been_declared_crisis = no
+    }
+
+    effect = {}
+}

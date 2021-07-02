@@ -7,6 +7,22 @@ usagi_quest_fallen_empire = {
 
     create_country_effect = {
         create_species = {
+            name = "NAME_usagi_quest_mao"
+            plural = "NAME_usagi_quest_mao"
+            adjective = "usagi_quest_mao_adj"
+            namelist = "usagi_quest_name_list_mao"
+        
+            class = "MAM"
+            portrait = random
+
+            traits = random
+            allow_negative_traits = no
+            extra_trait_points = 0
+            immortal = yes
+        }
+        last_created_species = { save_global_event_target_as = usagi_quest_mao }
+
+        create_species = {
             name = "PRESCRIPTED_species_name_humans1"
             plural = "PRESCRIPTED_species_plural_humans1"
             adjective = "PRESCRIPTED_species_adjective_humans1"

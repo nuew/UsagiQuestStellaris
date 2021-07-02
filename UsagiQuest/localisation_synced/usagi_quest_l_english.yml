@@ -2,7 +2,15 @@
  NAME_usagi_quest_mao: "Mao"
  usagi_quest_mao_adj: "Mao"
 
+ NAME_usagi_quest_ceres: "Ceres"
+ NAME_usagi_quest_pallas: "Pallas"
+ NAME_usagi_quest_juno: "Juno"
+ NAME_usagi_quest_vesta: "Vesta"
  NAME_usagi_quest_pluto: "Pluto"
+ NAME_usagi_quest_makemake: "Makemake"
+ NAME_usagi_quest_haumea: "Haumea"
+ NAME_usagi_quest_varuna: "Varuna"
+
  NAME_usagi_quest_earth_kingdom: "Earth Kingdom"
  NAME_usagi_quest_silver_empire: "Silver Empire"
  usagi_quest_silver_empire_adj: "Silver Imperial"

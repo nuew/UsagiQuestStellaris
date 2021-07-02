@@ -1,0 +1,56 @@
+usagi_quest_gen_fe_world = {
+    set_planet_flag = fallen_empire_world
+    prevent_anomaly = yes
+    set_owner = root
+    set_controller = root
+
+    add_building = building_ancient_palace
+    while = { count = 6 add_building = building_fe_dome }
+    add_building = building_fe_stronghold
+
+    while = {
+        limit = { num_free_districts = { type = any value >= 1 } }
+        random_list = {
+            51 = { 
+                modifier = {
+                    factor = 0
+                    num_free_districts = { type = district_city value = 0 }
+                }
+                add_district = district_city
+            }
+            16 = {
+                modifier = {
+                    factor = 0
+                    num_free_districts = { type = district_generator value = 0 }
+                }
+                add_district = district_generator
+            }
+            16 = {
+                modifier = {
+                    factor = 0
+                    num_free_districts = { type = district_mining value = 0 }
+                }
+                add_district = district_mining
+            }
+            16 = {
+                modifier = {
+                    factor = 0
+                    num_free_districts = { type = district_farming value = 0 }
+                }
+                add_district = district_farming
+            }
+        }
+    }
+
+    while = {
+        count = 60
+        random_list = {
+            80 = {
+                create_pop = { species = owner_main_species }
+            }
+            20 = {
+                create_pop = { species = event_target:usagi_quest_mao }
+            }
+        }
+    }
+}

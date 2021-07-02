@@ -4,1006 +4,721 @@
 
 ### Sol System (For Usagi Quest Mod)
 usagi_quest_sol_system_initializer = {
-	name = "NAME_Sol"
-        usage = fallen_empire_init
+    name = "NAME_Sol"
+    usage = fallen_empire_init
+    flags = { sol }
 
-	class = "sc_g"
-	asteroid_belt = {
-		type = rocky_asteroid_belt
-		radius = 145
-	}
-	asteroid_belt = {
-		type = icy_asteroid_belt
-		radius = 290
-	}
+    class = "sc_g"
+    asteroid_belt = {
+        type = rocky_asteroid_belt
+        radius = 145
+    }
+    asteroid_belt = {
+        type = icy_asteroid_belt
+        radius = 290
+    }
 
-	planet = {
-		name = "NAME_Sol"
-		class = "pc_g_star"
-		orbit_distance = 0
-		orbit_angle = 1
-		size = 30
-		has_ring = no
-	}
+    planet = {
+        name = "NAME_Sol"
+        class = "pc_g_star"
+        orbit_distance = 0
+        orbit_angle = 1
+        size = 30
+        has_ring = no
+    }
 
-	planet = {
-		name = "NAME_Mercury"
-		class = "pc_continental"
-		orbit_distance = 40
-		orbit_angle = 15
-		size = 10
-		has_ring = no
-		deposit_blockers = none
-
-                init_effect = {
-                        set_planet_flag = fallen_empire_world
-                        prevent_anomaly = yes
-                        set_owner = root
-                        set_controller = root
-
-                        add_building = building_ancient_palace
-                        add_building = building_master_archive
-                        add_building = building_fe_dome
-                        add_building = building_fe_dome
-                        add_building = building_fe_dome
-                        add_building = building_dimensional_fabricator
-                        add_building = building_dimensional_fabricator
-                        add_building = building_dimensional_fabricator
-                        add_building = building_nano_forge
-                        add_building = building_nano_forge
-                        add_building = building_nano_forge
-			add_building = building_fe_stronghold
-
-                        while = {
-                                count = 3
-                                add_district = district_city
-                        }
-                        while = {
-                                count = 6
-                                add_district = district_generator
-                        }
-                        add_district = district_farming
-                        while = {
-                                count = 48
-                                create_pop = {
-                                        species = owner_main_species
-                                }
-                        }
-                }
-	}
-
-	planet = {
-		name = "NAME_Venus"
-		class = "pc_continental"
-		orbit_distance = 25
-		orbit_angle = 125
-		size = 20
-		has_ring = no
-		deposit_blockers = none
-
-                init_effect = {
-                        set_planet_flag = fallen_empire_world
-                        prevent_anomaly = yes
-                        set_owner = root
-                        set_controller = root
-
-                        add_building = building_ancient_palace
-                        add_building = building_fe_dome
-                        add_building = building_fe_dome
-                        add_building = building_fe_dome
-                        add_building = building_fe_dome
-                        add_building = building_affluence_center
-                        add_building = building_affluence_center
-                        add_building = building_nourishment_center
-                        add_building = building_nourishment_center
-                        add_building = building_class_4_singularity
-                        add_building = building_class_4_singularity
-                        add_building = building_fe_stronghold
-
-                        while = {
-                                count = 3
-                                add_district = district_city
-                                add_district = district_industrial
-                                add_district = district_generator
-                        }
-                        while = {
-                                count = 6
-                                add_district = district_mining
-                                add_district = district_farming
-                        }
-                        while = {
-                                count = 59
-                                create_pop = {
-                                        species = owner_main_species
-                                }
-                        }
-                }
-	}
-
-	planet = {
-		name = "NAME_Earth"
-		class = "pc_continental"
-		orbit_distance = 25
-		orbit_angle = 120
-		size = 18
-		has_ring = no
-		entity = "continental_planet_earth_entity"
-		deposit_blockers = none
-		modifiers = none
-		flags = { planet_earth }
-
-                init_effect = {
-                        create_country = {
-                                name = "NAME_usagi_quest_earth_kingdom"
-                                adjective = "NAME_usagi_quest_earth_kingdom"
-                                type = default
-
-                                name_list = "usagi_quest_name_list_human"
-                                ship_prefix = "EKS"
-
-                                authority = auth_imperial
-                                species = last_created_species
-                                origin = origin_default
-                                civics = {
-                                        civic = civic_aristocratic_elite
-                                        civic = civic_feudal_realm
-                                }
-                                ethos = {
-                                        ethic = ethic_authoritarian
-                                        ethic = ethic_fanatic_militarist
-                                }
-                                flag = random
-
-                                effect = {
-                                        set_subject_of = {
-                                                who = root
-                                                subject_type = protectorate
-                                        }
-                                }
-                        } 
-
-                        prevent_anomaly = yes
-                        set_owner = last_created_country
-                        set_controller = last_created_country
-                        set_capital = yes
-
-                        while = {
-                                count = 18
-                                create_pop = {
-                                        species = owner_main_species
-                                }
-                        }
-                        while = {
-                                count = 6
-                                add_district = district_city
-                                add_district = district_generator
-                                add_district = district_farming
-                        }
-
-                        add_building = building_system_capital
-                        add_building = building_noble_estates
-                        add_building = building_stronghold
-                        add_building = building_urban_dwellings
-                        add_building = building_urban_dwellings
-                        add_building = building_primitive_dwellings
-                        add_building = building_primitive_dwellings
-
-                        owner_main_species = {
-                                set_species_homeworld = PREV
-                        }
-                }
-
-		moon = {
-			name = "NAME_Luna"
-			class = "pc_continental"
-			size = 5
-			orbit_distance = 12
-			orbit_angle = 40
-			has_ring = no
-			entity = "cold_barren_planet_luna_entity"
-		        deposit_blockers = none
-
-                        init_effect = {
-                                create_cluster = {
-                                        id = usagi_quest_fe_cluster
-                                        radius = 100
-                                        center = this.solar_system
-                                }
-
-                                set_planet_flag = fallen_empire_world
-                                prevent_anomaly = yes
-                                set_owner = root
-                                set_controller = root
-                                set_capital = yes
-
-                                add_building = building_ancient_palace
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_stronghold
-                                add_building = building_fe_stronghold
-
-                                while = {
-                                        count = 20
-                                        add_district = district_city
-                                }
-                                while = {
-                                        count = 113
-                                        create_pop = {
-                                                species = owner_main_species
-                                        }
-                                }
-                                while = {
-                                        count = 25
-                                        create_army = {
-                                                name = random
-                                                owner = root
-                                                species = root
-                                                type = "psionic_army"
-                                        }
-                                }
-
-                                create_fallen_empire_starting_navy = yes
-                                add_modifier = {
-                                    modifier = country_admin_cap_mult
-                                    multiplier = 2
-                                    clear_on_owner_change = yes
-                                }
-                        }
-		}
-	}
-
-	planet = {
-		name = "NAME_Mars"
-		class = "pc_continental"
-		orbit_distance = 25
-		orbit_angle = 60
-		size = 13
-		has_ring = no
-		entity = "barren_planet_mars_entity"
-		deposit_blockers = none
-
-                init_effect = {
-                        set_planet_flag = fallen_empire_world
-                        prevent_anomaly = yes
-                        set_owner = root
-                        set_controller = root
-
-                        add_building = building_ancient_palace
-                        add_building = building_empyrean_shrine
-                        add_building = building_fe_dome
-                        add_building = building_fe_dome
-                        add_building = building_fe_dome
-                        add_building = building_affluence_center
-                        add_building = building_affluence_center
-                        add_building = building_nourishment_center
-                        add_building = building_nourishment_center
-                        add_building = building_class_4_singularity
-                        add_building = building_class_4_singularity
-                        add_building = building_fe_stronghold
-
-                        while = {
-                                count = 3
-                                add_district = district_city
-                        }
-                        while = {
-                                count = 4
-                                add_district = district_mining
-                        }
-                        while = {
-                                count = 6
-                                add_district = district_farming
-                        }
-                        while = {
-                                count = 48
-                                create_pop = {
-                                        species = owner_main_species
-                                }
-                        }
-                }
-	}
-
-	planet = {
-		name = "NAME_1_Ceres"
-		class = "pc_asteroid"
-		orbit_distance = 30
-		orbit_angle = -210
-		size = 5
-		has_ring = no
-	}
-
-	planet = {
-		name = "NAME_2_Pallas"
-		class = "pc_asteroid"
-		orbit_distance = 0
-		orbit_angle = -95
-		size = 5
-		has_ring = no
-	}
-
-	planet = {
-		name = "NAME_3_Juno"
-		class = "pc_asteroid"
-		orbit_distance = 0
-		orbit_angle = 285
-		size = 5
-		has_ring = no
-	}
-
-	planet = {
-		name = "NAME_4_Vesta"
-		class = "pc_asteroid"
-		orbit_distance = 0
-		orbit_angle = -80
-		size = 5
-		has_ring = no
-	}
-
-	planet = {
-		name = "NAME_Jupiter"
-		class = "pc_gas_giant"
-		orbit_distance = 40
-		orbit_angle = -160
-		size = 35
-		has_ring = no
-		entity = "gas_giant_jupiter_entity"
-		change_orbit = 6
-
-		moon = {
-			name = "NAME_Io"
-			class = "pc_continental"
-			size = 6
-			orbit_distance = 10
-			orbit_angle = 110
-			has_ring = no
-		        deposit_blockers = none
-
-                        init_effect = {
-                                set_planet_flag = fallen_empire_world
-                                prevent_anomaly = yes
-                                set_owner = root
-                                set_controller = root
-
-                                add_building = building_ancient_palace
-                                add_building = building_affluence_center
-                                add_building = building_affluence_center
-                                add_building = building_affluence_center
-                                add_building = building_nourishment_center
-                                add_building = building_fe_stronghold
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-
-                                while = {
-                                        count = 6
-                                        add_district = district_city
-                                }
-                                while = {
-                                        count = 80
-                                        create_pop = {
-                                                species = owner_main_species
-                                        }
-                                }
-                        }
-		}
-		moon = {
-			name = "NAME_Europa"
-			class = "pc_continental"
-			size = 6
-			orbit_distance = 2.5
-			orbit_angle = 10
-			has_ring = no
-		        deposit_blockers = none
-
-                        init_effect = {
-                                set_planet_flag = fallen_empire_world
-                                prevent_anomaly = yes
-                                set_owner = root
-                                set_controller = root
-
-                                add_building = building_ancient_palace
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_dimensional_fabricator
-                                add_building = building_nano_forge
-                                add_building = building_affluence_center
-                                add_building = building_nourishment_center
-                                add_building = building_class_4_singularity
-                                add_building = building_fe_stronghold
-
-                                while = {
-                                        count = 3
-                                        add_district = district_city
-                                        add_district = district_mining
-                                }
-                                while = {
-                                        count = 65
-                                        create_pop = {
-                                                species = owner_main_species
-                                        }
-                                }
-                        }
-		}
-		moon = {
-			name = "NAME_Ganymede"
-			class = "pc_frozen"
-			size = 9
-			orbit_distance = 2.5
-			orbit_angle = 80
-			has_ring = no
-		}
-		moon = {
-			name = "NAME_Callisto"
-			class = "pc_frozen"
-			size = 7
-			orbit_distance = 2.5
-			orbit_angle = -155
-			has_ring = no
-		}
-	}
-
-	planet = {
-		name = "NAME_Saturn"
-		class = "pc_gas_giant"
-		orbit_distance = 25
-		orbit_angle = 170
-		size = 30
-		has_ring = yes
-		entity = "gas_giant_05_entity"
-		change_orbit = 7
-
-		moon = {
-			name = "NAME_Titan"
-			class = "pc_continental"
-			size = 8
-			orbit_distance = 12
-			orbit_angle = 320
-			has_ring = no
-		        deposit_blockers = none
-
-                        init_effect = {
-                                set_planet_flag = fallen_empire_world
-                                prevent_anomaly = yes
-                                set_owner = root
-                                set_controller = root
-
-                                add_building = building_ancient_palace
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_affluence_center
-                                add_building = building_nourishment_center
-                                add_building = building_class_4_singularity
-                                add_building = building_fe_stronghold
-
-                                while = {
-                                        count = 3
-                                        add_district = district_city
-                                        add_district = district_mining
-                                }
-                                while = {
-                                        count = 2
-                                        add_district = district_industrial
-                                }
-                                while = {
-                                        count = 85
-                                        create_pop = {
-                                                species = owner_main_species
-                                        }
-                                }
-                        }
-		}
-	}
-
-	planet = {
-		name = "NAME_Uranus"
-		class = "pc_gas_giant"
-		orbit_distance = 25
-		orbit_angle = 125
-		size = 20
-		has_ring = no
-		entity = "gas_giant_03_entity"
-	}
-
-	planet = {
-		name = "NAME_Neptune"
-		class = "pc_gas_giant"
-		orbit_distance = 25
-		orbit_angle = -195
-		size = 20
-		has_ring = no
-		entity = "gas_giant_02_entity"
-		change_orbit = 4
-
-		moon = {
-			name = "NAME_Triton"
-			class = "pc_continental"
-			size = 6
-			orbit_distance = 7
-			orbit_angle = 115
-			has_ring = no
-		        deposit_blockers = none
-
-                        init_effect = {
-                                set_planet_flag = fallen_empire_world
-                                prevent_anomaly = yes
-                                set_owner = root
-                                set_controller = root
-
-                                add_building = building_ancient_palace
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_fe_dome
-                                add_building = building_dimensional_fabricator
-                                add_building = building_nano_forge
-                                add_building = building_affluence_center
-                                add_building = building_fe_stronghold
-
-                                while = {
-                                        count = 3
-                                        add_district = district_city
-                                        add_district = district_generator
-                                }
-                                while = {
-                                        count = 89
-                                        create_pop = {
-                                                species = owner_main_species
-                                        }
-                                }
-                        }
-		}
-	}
-
-	planet = {
-		name = "NAME_usagi_quest_pluto"
-		class = "pc_continental"
-		orbit_distance = 30
-		orbit_angle = -210
-		size = 5
-		has_ring = no
-		deposit_blockers = none
-
-                init_effect = {
-                        set_planet_flag = fallen_empire_world
-                        prevent_anomaly = yes
-                        set_owner = root
-                        set_controller = root
-
-                        add_building = building_ancient_palace
-                        add_building = building_fe_dome
-                        add_building = building_fe_dome
-                        add_building = building_fe_dome
-                        add_building = building_fe_dome
-                        add_building = building_fe_dome
-                        add_building = building_research_lab_3
-                        add_building = building_institute
-                        add_building = building_fe_stronghold
-                        add_building = building_fe_stronghold
-                        add_building = building_fe_stronghold
-                        add_building = building_fe_stronghold
-
-                        while = {
-                                count = 5
-                                add_district = district_city
-                        }
-                        while = {
-                                count = 73
-                                create_pop = {
-                                        species = owner_main_species
-                                }
-                        }
-                }
-	}
-
-	planet = {
-		name = "NAME_136472_Makemake"
-		class = "pc_ice_asteroid"
-		orbit_distance = 0
-		orbit_angle = -95
-		size = 5
-		has_ring = no
-	}
-
-	planet = {
-		name = "NAME_136108_Haumea"
-		class = "pc_ice_asteroid"
-		orbit_distance = 0
-		orbit_angle = 285
-		size = 5
-		has_ring = no
-	}
-
-	planet = {
-		name = "NAME_20000_Varuna"
-		class = "pc_ice_asteroid"
-		orbit_distance = 0
-		orbit_angle = -80
-		size = 5
-		has_ring = no
-	}
-
-	neighbor_system = {
-		hyperlane_jumps = { min = 1 max = @jumps }
-		initializer = "usagi_quest_sol_neighbor_t1a"
-	}
-	neighbor_system = {
-		hyperlane_jumps = { min = 1 max = @jumps }
-		initializer = "usagi_quest_sol_neighbor_t1b"
-	}
+    planet = {
+        name = "NAME_Mercury"
+        class = "pc_continental"
+        orbit_distance = 40
+        orbit_angle = 15
+        size = 10
+        has_ring = no
+        deposit_blockers = none
 
         init_effect = {
-                create_fe_home_citadel = yes
+            usagi_quest_gen_fe_world = yes
+            add_building = building_research_lab_3
+            add_building = building_institute
+            add_building = building_dimensional_fabricator
+            add_building = building_nano_forge
         }
+    }
+
+    planet = {
+        name = "NAME_Venus"
+        class = "pc_continental"
+        orbit_distance = 25
+        orbit_angle = 125
+        size = 20
+        has_ring = no
+        deposit_blockers = none
+
+        init_effect = {
+            usagi_quest_gen_fe_world = yes
+            add_building = building_affluence_center
+            add_building = building_affluence_center
+            add_building = building_nourishment_center
+            add_building = building_nourishment_center
+        }
+    }
+
+    planet = {
+        name = "NAME_Earth"
+        class = "pc_continental"
+        orbit_distance = 25
+        orbit_angle = 120
+        size = 18
+        has_ring = no
+        entity = "continental_planet_earth_entity"
+        deposit_blockers = none
+        modifiers = none
+        flags = { planet_earth }
+
+        init_effect = {
+            create_country = {
+                name = "NAME_usagi_quest_earth_kingdom"
+                adjective = "NAME_usagi_quest_earth_kingdom"
+                type = default
+
+                name_list = "usagi_quest_name_list_human"
+                ship_prefix = "EKS"
+
+                authority = auth_imperial
+                species = last_created_species
+                origin = origin_default
+                civics = {
+                    civic = civic_aristocratic_elite
+                    civic = civic_feudal_realm
+                }
+                ethos = random
+                flag = random
+
+                effect = {
+                    set_subject_of = {
+                        who = root
+                        subject_type = usagi_quest_subject
+                    }
+                }
+            } 
+
+            prevent_anomaly = yes
+            set_owner = last_created_country
+            set_controller = last_created_country
+            set_capital = yes
+
+            generate_start_deposits_and_blockers = yes
+            generate_start_buildings_and_districts = yes
+            generate_start_pops = yes
+
+            owner_main_species = {
+                set_species_homeworld = PREV
+            }
+        }
+
+        moon = {
+            name = "NAME_Luna"
+            class = "pc_continental"
+            size = 5
+            orbit_distance = 12
+            orbit_angle = 40
+            has_ring = no
+            entity = "cold_barren_planet_luna_entity"
+            deposit_blockers = none
+
+            init_effect = {
+		set_capital = yes
+                create_cluster = {
+                    id = usagi_quest_fe_cluster
+                    radius = 100
+                    center = this.solar_system
+                }
+                
+		usagi_quest_gen_fe_world = yes
+                add_building = building_fe_stronghold
+                add_building = building_affluence_center
+                add_building = building_affluence_center
+                add_building = building_nourishment_center
+
+                # this only works for stock fallen empires FIXME
+                create_fallen_empire_starting_navy = yes                
+            }
+        }
+    }
+
+    planet = {
+        name = "NAME_Mars"
+        class = "pc_continental"
+        orbit_distance = 25
+        orbit_angle = 60
+        size = 13
+        has_ring = no
+        entity = "barren_planet_mars_entity"
+        deposit_blockers = none
+
+        init_effect = {
+            usagi_quest_gen_fe_world = yes
+            add_building = building_affluence_center
+            add_building = building_affluence_center
+            add_building = building_nourishment_center
+            add_building = building_nourishment_center
+        }
+    }
+
+    planet = {
+        name = "NAME_usagi_quest_ceres"
+        class = "pc_asteroid"
+        orbit_distance = 30
+        orbit_angle = -210
+        size = 5
+        has_ring = no
+    }
+
+    planet = {
+        name = "NAME_usagi_quest_pallas"
+        class = "pc_asteroid"
+        orbit_distance = 0
+        orbit_angle = -95
+        size = 5
+        has_ring = no
+    }
+
+    planet = {
+        name = "NAME_usagi_quest_juno"
+        class = "pc_asteroid"
+        orbit_distance = 0
+        orbit_angle = 285
+        size = 5
+        has_ring = no
+    }
+
+    planet = {
+        name = "NAME_usagi_quest_vesta"
+        class = "pc_asteroid"
+        orbit_distance = 0
+        orbit_angle = -80
+        size = 5
+        has_ring = no
+    }
+
+    planet = {
+        name = "NAME_Jupiter"
+        class = "pc_gas_giant"
+        orbit_distance = 40
+        orbit_angle = -160
+        size = 35
+        has_ring = no
+        entity = "gas_giant_jupiter_entity"
+        change_orbit = 6
+
+        moon = {
+            name = "NAME_Io"
+            class = "pc_continental"
+            size = 6
+            orbit_distance = 10
+            orbit_angle = 110
+            has_ring = no
+            deposit_blockers = none
+
+            init_effect = {
+                usagi_quest_gen_fe_world = yes
+                add_building = building_affluence_center
+                add_building = building_affluence_center
+                add_building = building_nourishment_center
+                add_building = building_nourishment_center
+            }
+        }
+        moon = {
+            name = "NAME_Europa"
+            class = "pc_continental"
+            size = 6
+            orbit_distance = 2.5
+            orbit_angle = 10
+            has_ring = no
+            deposit_blockers = none
+
+            init_effect = {
+                usagi_quest_gen_fe_world = yes
+                add_building = building_dimensional_fabricator
+                add_building = building_nano_forge
+                add_building = building_class_4_singularity
+                add_building = building_class_4_singularity
+            }
+        }
+        moon = {
+            name = "NAME_Ganymede"
+            class = "pc_frozen"
+            size = 9
+            orbit_distance = 2.5
+            orbit_angle = 80
+            has_ring = no
+        }
+        moon = {
+            name = "NAME_Callisto"
+            class = "pc_frozen"
+            size = 7
+            orbit_distance = 2.5
+            orbit_angle = -155
+            has_ring = no
+        }
+    }
+
+    planet = {
+        name = "NAME_Saturn"
+        class = "pc_gas_giant"
+        orbit_distance = 25
+        orbit_angle = 170
+        size = 30
+        has_ring = yes
+        entity = "gas_giant_05_entity"
+        change_orbit = 7
+
+        moon = {
+            name = "NAME_Titan"
+            class = "pc_continental"
+            size = 8
+            orbit_distance = 12
+            orbit_angle = 320
+            has_ring = no
+            deposit_blockers = none
+
+            init_effect = {
+                usagi_quest_gen_fe_world = yes
+                add_building = building_dimensional_fabricator
+                add_building = building_nano_forge
+                add_building = building_class_4_singularity
+                add_building = building_class_4_singularity
+            }
+        }
+    }
+
+    planet = {
+        name = "NAME_Uranus"
+        class = "pc_gas_giant"
+        orbit_distance = 25
+        orbit_angle = 125
+        size = 20
+        has_ring = no
+        entity = "gas_giant_03_entity"
+    }
+
+    planet = {
+        name = "NAME_Neptune"
+        class = "pc_gas_giant"
+        orbit_distance = 25
+        orbit_angle = -195
+        size = 20
+        has_ring = no
+        entity = "gas_giant_02_entity"
+        change_orbit = 4
+
+        moon = {
+            name = "NAME_Triton"
+            class = "pc_continental"
+            size = 6
+            orbit_distance = 7
+            orbit_angle = 115
+            has_ring = no
+            deposit_blockers = none
+
+            init_effect = {
+                usagi_quest_gen_fe_world = yes
+                add_building = building_affluence_center
+                add_building = building_nourishment_center
+                add_building = building_dimensional_fabricator
+                add_building = building_nano_forge
+            }
+        }
+    }
+
+    planet = {
+        name = "NAME_usagi_quest_pluto"
+        class = "pc_continental"
+        orbit_distance = 30
+        orbit_angle = -210
+        size = 5
+        has_ring = no
+        deposit_blockers = none
+
+        init_effect = {
+            usagi_quest_gen_fe_world = yes
+            add_building = building_fe_dome
+            add_building = building_fe_stronghold
+            add_building = building_fe_stronghold
+            add_building = building_fe_stronghold
+        }
+    }
+
+    planet = {
+        name = "NAME_usagi_quest_makemake"
+        class = "pc_ice_asteroid"
+        orbit_distance = 0
+        orbit_angle = -95
+        size = 5
+        has_ring = no
+    }
+
+    planet = {
+        name = "NAME_usagi_quest_haumea"
+        class = "pc_ice_asteroid"
+        orbit_distance = 0
+        orbit_angle = 285
+        size = 5
+        has_ring = no
+    }
+
+    planet = {
+        name = "NAME_usagi_quest_varuna"
+        class = "pc_ice_asteroid"
+        orbit_distance = 0
+        orbit_angle = -80
+        size = 5
+        has_ring = no
+    }
+
+    neighbor_system = {
+        hyperlane_jumps = { min = 1 max = @jumps }
+        initializer = "usagi_quest_sol_neighbor_t1a"
+    }
+    neighbor_system = {
+        hyperlane_jumps = { min = 1 max = @jumps }
+        initializer = "usagi_quest_sol_neighbor_t1b"
+    }
+
+    init_effect = {
+        create_fe_home_citadel = yes
+    }
 }
 
 # Sol Neighbor Tier 1a
 usagi_quest_sol_neighbor_t1a = {
-	name = "NAME_Barnard's_Star"
-	class = sc_m
+    name = "NAME_Barnard's_Star"
+    class = sc_m
 
-	planet = {
-		count = 1
-		class = star
-		orbit_distance = 0
-		orbit_angle = 1
-		size = { min = 20 max = 30 }
-		has_ring = no
-	}
+    planet = {
+        count = 1
+        class = star
+        orbit_distance = 0
+        orbit_angle = 1
+        size = { min = 20 max = 30 }
+        has_ring = no
+    }
 
-	change_orbit = 45
+    change_orbit = 45
 
-	planet = {
-		count = { min = 0 max = 2 }
-		orbit_distance = 20
-		change_orbit = @base_moon_distance
+    planet = {
+        count = { min = 0 max = 2 }
+        orbit_distance = 20
+        change_orbit = @base_moon_distance
 
-		moon = {
-			count = { min = 0 max = 1 }
-			orbit_distance = 5
-		}
-	}
+        moon = {
+            count = { min = 0 max = 1 }
+            orbit_distance = 5
+        }
+    }
 
-	planet = {
-		count = { min = 2 max = 5 }
-		orbit_distance = 20
-	}
+    planet = {
+        count = { min = 2 max = 5 }
+        orbit_distance = 20
+    }
 
-	neighbor_system = {
-		hyperlane_jumps = { min = 1 max = @jumps }
-		initializer = "usagi_quest_sol_neighbor_t2a"
-	}
+    neighbor_system = {
+        hyperlane_jumps = { min = 1 max = @jumps }
+        initializer = "usagi_quest_sol_neighbor_t2a"
+    }
 }
 
 # Sol Neighbor Tier 1b - Mao
 usagi_quest_sol_neighbor_t1b = {
-	name = "NAME_Alpha_Centauri"
-	class = sc_trinary_1
+    name = "NAME_Alpha_Centauri"
+    class = sc_trinary_1
 
-	init_effect = {
-		every_neighbor_system = {
-			set_star_flag = empire_cluster
-			every_neighbor_system = {
-				set_star_flag = empire_cluster
-			}
-		}
-		generate_home_system_resources = yes
-	}
+    planet = {
+        name = "NAME_Alpha_Centauri_A"
+        count = 1
+        class = pc_g_star
+        orbit_distance = 0
+        orbit_angle = 1
+        size = 32
+        has_ring = no
+    }
 
-	planet = {
-		name = "NAME_Alpha_Centauri_A"
-		count = 1
-		class = pc_g_star
-		orbit_distance = 0
-		orbit_angle = 1
-		size = 32
-		has_ring = no
-	}
+    planet = {
+        name = "NAME_Alpha_Centauri_B"
+        count = 1
+        class = pc_k_star
+        orbit_distance = 260
+        orbit_angle = 40
+        size = 27
+        has_ring = no
 
-	planet = {
-		name = "NAME_Alpha_Centauri_B"
-		count = 1
-		class = pc_k_star
-		orbit_distance = 260
-		orbit_angle = 40
-		size = 27
-		has_ring = no
+        planet = {
+            name = "NAME_Alpha_Centauri_B_I"
+            class = pc_molten
+            size = 18
+            orbit_distance = 35
+        }
+        planet = {
+            name = "NAME_Alpha_Centauri_B_II"
+            class = pc_barren
+            size = 25
+            orbit_distance = 25
 
-		planet = {
-			name = "NAME_Alpha_Centauri_B_I"
-			class = pc_molten
-			size = 18
-			orbit_distance = 35
-		}
-		planet = {
-			name = "NAME_Alpha_Centauri_B_II"
-			class = pc_barren
-			size = 25
-			orbit_distance = 25
+        }
+        planet = {
+            name = "NAME_Alpha_Centauri_B_III"
+            class = pc_gas_giant
+            size = 35
+            orbit_angle = 330
+            orbit_distance = 25
+        }
+    }
 
-		}
-		planet = {
-			name = "NAME_Alpha_Centauri_B_III"
-			class = pc_gas_giant
-			size = 35
-			orbit_angle = 330
-			orbit_distance = 25
-		}
-	}
+    planet = {
+        name = "NAME_Proxima_Centauri"
+        count = 1
+        class = pc_m_star
+        orbit_angle = 130
+        size = 15
+        has_ring = no
 
-	planet = {
-		name = "NAME_Proxima_Centauri"
-		count = 1
-		class = pc_m_star
-		orbit_angle = 130
-		size = 15
-		has_ring = no
+        planet = {
+            name = "NAME_Proxima_Centauri_I"
+            class = pc_molten
+            size = 22
+            orbit_distance = 25
+        }
 
-		planet = {
-			name = "NAME_Proxima_Centauri_I"
-			class = pc_molten
-			size = 22
-			orbit_distance = 25
-		}
+        planet = {
+            name = "NAME_Proxima_Centauri_II"
+            class = pc_gas_giant
+            size = 28
+            orbit_distance = 25
+        }
+    }
 
-		planet = {
-			name = "NAME_Proxima_Centauri_II"
-			class = pc_gas_giant
-			size = 28
-			orbit_distance = 25
-		}
-	}
+    change_orbit = -260
 
-	change_orbit = -260
+    planet = {
+        count = 2
+        orbit_distance = 25
 
-	planet = {
-		count = 2
-		orbit_distance = 25
+        change_orbit = @base_moon_distance
 
-		change_orbit = @base_moon_distance
+        moon = {
+            count = { min = 0 max = 1 }
+            orbit_distance = 5
+        }
+    }
 
-		moon = {
-			count = { min = 0 max = 1 }
-			orbit_distance = 5
-		}
-	}
+    planet = {
+        count = 1
+        orbit_distance = 30
+        class = pc_continental
+        orbit_angle = { min = 90 max = 270 }
+        size = { min = 14 max = 22 }
 
-	planet = {
-		count = 1
-		orbit_distance = 30
-		class = pc_continental
-		orbit_angle = { min = 90 max = 270 }
-		size = { min = 14 max = 22 }
+        init_effect = {
+            create_country = {
+                name = "NAME_usagi_quest_mao_kingdom"
+                adjective = "NAME_usagi_quest_mao_kingdom"
+                type = default
 
-                init_effect = {
-                        generate_empire_home_planet = yes
+                name_list = "usagi_quest_name_list_mao"
+                ship_prefix = "MAON"
 
-                        create_species = {
-                                name = "NAME_usagi_quest_mao"
-                                adjective = "usagi_quest_mao_adj"
-                                namelist = "usagi_quest_name_list_mao"
-                        
-                                class = "MAM"
-                                portrait = random
+                authority = auth_imperial
+                species = event_target:usagi_quest_mao
+                origin = origin_default
+                civics = random
+                ethos = random
+                flag = random
 
-                                traits = random
-                                allow_negative_traits = no
-                                extra_trait_points = 0
-                        }
-                        create_country = {
-                                name = "NAME_usagi_quest_mao_kingdom"
-                                adjective = "NAME_usagi_quest_mao_kingdom"
-                                type = default
-
-                                name_list = "usagi_quest_name_list_mao"
-                                ship_prefix = "EKS"
-
-                                authority = auth_imperial
-                                species = last_created_species
-                                origin = origin_default
-                                civics = random
-                                ethos = random
-                                flag = random
-
-                                effect = {
-                                        set_subject_of = {
-                                                who = root
-                                                subject_type = protectorate
-                                        }
-                                }
-                        } 
-
-                        prevent_anomaly = yes
-                        set_owner = last_created_country
-                        set_controller = last_created_country
-                        set_capital = yes
-
-                        while = {
-                                count = 20
-                                create_pop = {
-                                        species = owner_main_species
-                                }
-                        }
-                        while = {
-                                count = 3
-                                add_district = district_city
-                                add_district = district_city
-                                add_district = district_generator
-                                add_district = district_mining
-                                add_district = district_farming
-                        }
-
-                        add_building = building_system_capital
-                        add_building = building_noble_estates
-                        add_building = building_stronghold
-
-                        owner_main_species = {
-                                set_species_homeworld = PREV
-                        }
+                effect = {
+                    set_subject_of = {
+                        who = root
+                        subject_type = usagi_quest_subject
+                    }
                 }
+            } 
 
-	}
+            prevent_anomaly = yes
+            set_owner = last_created_country
+            set_controller = last_created_country
+            set_capital = yes
 
-	planet = {
-		count = 2
-		orbit_distance = 25
+            generate_start_deposits_and_blockers = yes
+            generate_start_buildings_and_districts = yes
+            generate_start_pops = yes
 
-		change_orbit = @base_moon_distance
+            owner_main_species = {
+                set_species_homeworld = PREV
+            }
+        }
 
-		moon = {
-			count = { min = 0 max = 1 }
-			orbit_distance = 5
-		}
-	}
+    }
 
-	neighbor_system = {
-		hyperlane_jumps = { min = 1 max = @jumps }
-		initializer = "usagi_quest_sol_neighbor_t2b"
-	}
+    planet = {
+        count = 2
+        orbit_distance = 25
+
+        change_orbit = @base_moon_distance
+
+        moon = {
+            count = { min = 0 max = 1 }
+            orbit_distance = 5
+        }
+    }
+
+    init_effect = {
+        generate_home_system_resources = yes
+        create_starbase = {
+            size = starbase_starport
+            module = shipyard
+            building = crew_quarters
+            owner = last_created_country
+            effect = {
+                set_starbase_module = {
+                    slot = 1
+                    module = trading_hub
+                }
+            }
+        }
+    }
+
+    neighbor_system = {
+        hyperlane_jumps = { min = 1 max = @jumps }
+        initializer = "usagi_quest_sol_neighbor_t2b"
+    }
 }
 
 # Sol Neighbor Tier 2
 usagi_quest_sol_neighbor_t2a = {
-	name = "NAME_Procyon"
-	class = sc_binary_8
-	asteroid_belt = {
-		type = rocky_asteroid_belt
-		radius = 120
-	}
+    name = "NAME_Procyon"
+    class = sc_binary_8
+    asteroid_belt = {
+        type = rocky_asteroid_belt
+        radius = 120
+    }
 
-	planet = {
-		name = "NAME_Procyon_A"
-		count = 1
-		class = pc_f_star
-		orbit_distance = 30
-		orbit_angle = 1
-		size = 35
-		has_ring = no
-	}
+    planet = {
+        name = "NAME_Procyon_A"
+        count = 1
+        class = pc_f_star
+        orbit_distance = 30
+        orbit_angle = 1
+        size = 35
+        has_ring = no
+    }
 
-	planet = {
-		name = "NAME_Procyon_B"
-		count = 1
-		class = pc_f_star
-		orbit_distance = 0
-		orbit_angle = 125
-		size = 20
-		has_ring = no
-	}
+    planet = {
+        name = "NAME_Procyon_B"
+        count = 1
+        class = pc_f_star
+        orbit_distance = 0
+        orbit_angle = 125
+        size = 20
+        has_ring = no
+    }
 
-	planet = {
-		count = 1
-		orbit_distance = 65
-	}
+    planet = {
+        count = 1
+        orbit_distance = 65
+    }
 
-	change_orbit = 25
+    change_orbit = 25
 
-	planet = {
-		count = { min = 1 max = 3 }
-		class = pc_asteroid
-		orbit_distance = 0
-		orbit_angle = { min = 0 max = 360 }
-	}
+    planet = {
+        count = { min = 1 max = 3 }
+        class = pc_asteroid
+        orbit_distance = 0
+        orbit_angle = { min = 0 max = 360 }
+    }
 
-	planet = {
-		count = { min = 2 max = 5 }
-		orbit_distance = 25
+    planet = {
+        count = { min = 2 max = 5 }
+        orbit_distance = 25
 
-		change_orbit = @base_moon_distance
+        change_orbit = @base_moon_distance
 
-		moon = {
-			count = { min = 0 max = 1 }
-			orbit_distance = 5
-		}
-	}
+        moon = {
+            count = { min = 0 max = 1 }
+            orbit_distance = 5
+        }
+    }
 }
 
 # Sol Neighbor Tier 2b
 usagi_quest_sol_neighbor_t2b = {
-	name = "NAME_Sirius"
-	class = sc_binary_9
+    name = "NAME_Sirius"
+    class = sc_binary_9
 
-	planet = {
-		name = "NAME_Sirius_A"
-		count = 1
-		class = pc_a_star
-		orbit_distance = 30
-		orbit_angle = 1
-		size = 35
-		has_ring = no
-	}
+    planet = {
+        name = "NAME_Sirius_A"
+        count = 1
+        class = pc_a_star
+        orbit_distance = 30
+        orbit_angle = 1
+        size = 35
+        has_ring = no
+    }
 
-	planet = {
-		name = "NAME_Sirius_B"
-		count = 1
-		class = pc_f_star
-		orbit_distance = 0
-		orbit_angle = 120
-		size = 15
-		has_ring = no
-	}
+    planet = {
+        name = "NAME_Sirius_B"
+        count = 1
+        class = pc_f_star
+        orbit_distance = 0
+        orbit_angle = 120
+        size = 15
+        has_ring = no
+    }
 
-	change_orbit = 45
+    change_orbit = 45
 
-	planet = {
-		count = 2
-		orbit_angle = { min = 90 max = 270 }
-		orbit_distance = 20
-	}
+    planet = {
+        count = 2
+        orbit_angle = { min = 90 max = 270 }
+        orbit_distance = 20
+    }
 
-	planet = {
-		count = 1
-		orbit_distance = 25
-		orbit_angle = { min = 90 max = 270 }
-		size = { min = 14 max = 24 }
+    planet = {
+        count = 1
+        orbit_distance = 25
+        orbit_angle = { min = 90 max = 270 }
+        size = { min = 14 max = 24 }
 
-		change_orbit = @base_moon_distance
+        change_orbit = @base_moon_distance
 
-		moon = {
-			count = { min = 0 max = 1 }
-			class = random_non_colonizable
-			orbit_angle = { min = 90 max = 270 }
-			orbit_distance = 5
-		}
-	}
+        moon = {
+            count = { min = 0 max = 1 }
+            class = random_non_colonizable
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 5
+        }
+    }
 
-	planet = {
-		count = 2
-		orbit_angle = { min = 90 max = 270 }
-		orbit_distance = 20
+    planet = {
+        count = 2
+        orbit_angle = { min = 90 max = 270 }
+        orbit_distance = 20
 
-		change_orbit = @base_moon_distance
+        change_orbit = @base_moon_distance
 
-		moon = {
-			count = { min = 0 max = 1 }
-			class = random_non_colonizable
-			orbit_angle = { min = 90 max = 270 }
-			orbit_distance = 5
-		}
-	}
+        moon = {
+            count = { min = 0 max = 1 }
+            class = random_non_colonizable
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 5
+        }
+    }
 
-	planet = {
-		count = { min = 0 max = 2 }
-		orbit_angle = { min = 90 max = 270 }
-		orbit_distance = 20
-	}
+    planet = {
+        count = { min = 0 max = 2 }
+        orbit_angle = { min = 90 max = 270 }
+        orbit_distance = 20
+    }
+
+    init_effect = {
+        clear_global_event_target = usagi_quest_mao
+    }
 }
