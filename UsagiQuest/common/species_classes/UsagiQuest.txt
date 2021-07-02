@@ -1,0 +1,17 @@
+usagi_quest_class = {
+    archetype = BIOLOGICAL
+
+    randomized = no
+    possible = { authority = { NOT = {
+        value = auth_machine_intelligence
+        text = SPECIES_CLASS_MUST_NOT_USE_MACHINE_INTELLIGENCE
+    } } }
+
+    portraits = {
+        "usagi_quest_human"
+        "usagi_quest_mao"
+    }
+
+    graphical_culture = "humanoid_01"
+    move_pop_sound_effect = "moving_pop_confirmation"
+}

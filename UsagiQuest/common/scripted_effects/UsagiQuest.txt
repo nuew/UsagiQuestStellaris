@@ -43,13 +43,19 @@ usagi_quest_gen_fe_world = {
     }
 
     while = {
-        count = 60
+        count = 70
         random_list = {
             80 = {
-                create_pop = { species = owner_main_species }
+                create_pop = {
+                    species = owner_main_species
+                    ethos = random
+                }
             }
             20 = {
-                create_pop = { species = event_target:usagi_quest_mao }
+                create_pop = {
+                    species = event_target:usagi_quest_mao
+                    ethos = random
+                }
             }
         }
     }

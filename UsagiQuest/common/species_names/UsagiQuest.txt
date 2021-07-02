@@ -1,0 +1,17 @@
+usagi_quest_class = {
+    human = {
+        name = Human
+        plural = Humans
+        home_planet = Sol
+        home_system = Earth
+        name_list = "usagi_quest_name_list_human"
+    }
+
+    mao = {
+        name = Mao
+        plural = Mao
+        home_planet = Cattown
+        home_system = Catland
+        name_list = "usagi_quest_name_list_mao"
+    }
+}
