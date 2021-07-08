@@ -127,7 +127,6 @@ usagi_quest_sol_system_initializer = {
             deposit_blockers = none
 
             init_effect = {
-		set_capital = yes
                 create_cluster = {
                     id = usagi_quest_fe_cluster
                     radius = 100
@@ -135,13 +134,13 @@ usagi_quest_sol_system_initializer = {
                 }
                 
 		usagi_quest_gen_fe_world = yes
+		set_capital = yes
                 add_building = building_fe_stronghold
                 add_building = building_affluence_center
                 add_building = building_affluence_center
                 add_building = building_nourishment_center
 
-                # this only works for stock fallen empires FIXME
-                create_fallen_empire_starting_navy = yes                
+                create_usagi_quest_fe_starting_navy = yes
             }
         }
     }
@@ -342,7 +341,7 @@ usagi_quest_sol_system_initializer = {
 
         init_effect = {
             usagi_quest_gen_fe_world = yes
-            add_building = building_fe_dome
+            add_building = building_usagi_quest_time_gate
             add_building = building_fe_stronghold
             add_building = building_fe_stronghold
             add_building = building_fe_stronghold

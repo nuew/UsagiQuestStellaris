@@ -1,0 +1,29 @@
+building_usagi_quest_time_gate = {
+    base_buildtime = @b2_time
+    can_build = no
+    can_demolish = no
+    position_priority = 1
+
+    icon = building_citadel_of_faith # TODO
+    
+    triggered_planet_modifier = { 
+        potential = {
+            exists = owner
+            owner = { is_fallen_empire_usagi = yes }
+        }
+        # TODO jobs
+    }
+
+    resources = {
+        category = planet_buildings
+        produces = {
+            physics_research = 200
+            society_research = 100
+        }
+        cost = { minerals = @b3_minerals } 
+        upkeep = { energy = 20 }
+    }
+
+    potential = {}
+    upgrades = {}
+}

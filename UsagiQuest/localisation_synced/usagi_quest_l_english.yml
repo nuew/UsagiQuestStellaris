@@ -15,3 +15,12 @@
  NAME_usagi_quest_silver_empire: "Silver Empire"
  usagi_quest_silver_empire_adj: "Silver Imperial"
  NAME_usagi_quest_mao_kingdom: "Mao Kingdom"
+
+ # TODO
+ usagi_quest_ship_colossus: "UQ Colossus"
+ usagi_quest_ship_massive: "UQ Massive"
+ usagi_quest_ship_large: "UQ Large"
+ usagi_quest_ship_small: "UQ Small"
+ usagi_quest_ship_station: "UQ Station"
+ usagi_quest_ship_constructor: "UQ Constructor"
+ usagi_quest_ship_colonizer: "UQ Colonizer"

@@ -60,3 +60,205 @@ usagi_quest_gen_fe_world = {
         }
     }
 }
+
+usagi_quest_set_random_location = {
+    random_list = {
+        15 = {
+            set_location = {
+                target = prev
+                distance = 20
+                angle = random
+            }
+        }
+        15 = {
+            set_location = {
+                target = prev
+                distance = 20
+                angle = random
+            }
+        }
+        14 = {
+            set_location = {
+                target = prev
+                distance = 45
+                angle = random
+            }
+        }
+        14 = {
+            set_location = {
+                target = prev
+                distance = 60
+                angle = random
+            }
+        }
+        14 = {
+            set_location = {
+                target = prev
+                distance = 75
+                angle = random
+            }
+        }
+        14 = {
+            set_location = {
+                target = prev
+                distance = 80
+                angle = random
+            }
+        }
+        14 = {
+            set_location = {
+                target = prev
+                distance = 100
+                angle = random
+            }
+        }
+    }
+}
+
+@uq_ship_graphical_culture = fallen_empire_03
+
+create_usagi_quest_fe_colossus = {
+    if = {
+        limit = { owner = { is_fallen_empire_usagi = yes } }
+        create_ship = {
+            name = random
+            design = "usagi_quest_ship_colossus"
+            graphical_culture = @uq_ship_graphical_culture
+        }
+    }
+}
+
+create_usagi_quest_fe_titan = {
+    if = {
+        limit = { owner = { is_fallen_empire_usagi = yes } }
+        create_ship = {
+            name = random
+            design = "usagi_quest_ship_massive"
+            graphical_culture = @uq_ship_graphical_culture
+        }
+    }
+}
+
+create_usagi_quest_fe_large_ship = {
+    if = {
+        limit = { owner = { is_fallen_empire_usagi = yes } }
+        create_ship = {
+            name = random
+            design = "usagi_quest_ship_large"
+            graphical_culture = @uq_ship_graphical_culture
+        }
+    }
+}
+
+create_usagi_quest_fe_small_ship = {
+    if = {
+        limit = { owner = { is_fallen_empire_usagi = yes } }
+        create_ship = {
+            name = random
+            design = "usagi_quest_ship_small"
+            graphical_culture = @uq_ship_graphical_culture
+        }
+    }
+}
+
+create_usagi_quest_fe_constructor = {
+    if = {
+        limit = { owner = { is_fallen_empire_usagi = yes } }
+        create_ship = {
+            name = random
+            design = "usagi_quest_ship_constructor"
+            graphical_culture = @uq_ship_graphical_culture
+        }
+    }
+}
+
+# TODO hook up to event through flag voodoo
+create_usagi_quest_fe_reinforcements = {
+    create_fleet = {
+        effect = {
+            set_owner = prev.owner
+            while = {
+                count = 4
+                create_usagi_quest_fe_large_ship = yes
+            }
+            while = {
+                count = 8
+                create_usagi_quest_fe_small_ship = yes
+            }
+            usagi_quest_set_random_location = yes
+        }
+    }
+}
+
+create_usagi_quest_fe_fleet = {
+    owner = {
+        create_leader = {
+            class = admiral
+            species = owner_main_species
+            name = random
+            skill = 10
+            leader_age_min = 25
+            leader_age_max = 1000
+            traits = {
+                trait = random_trait
+                trait = random_trait
+                trait = random_trait
+            }
+        }
+    }
+    create_fleet = {
+        effect = {
+            set_owner = prev.owner
+            while = {
+                count = 8
+                create_usagi_quest_fe_large_ship = yes
+            }
+            while = {
+                count = 18
+                create_usagi_quest_fe_small_ship = yes
+            }
+            usagi_quest_set_random_location = yes
+        }
+    }
+    last_created_fleet = { assign_leader = last_created_leader }
+}
+
+create_usagi_quest_fe_starting_navy = {
+    create_usagi_quest_fe_fleet = yes
+    create_usagi_quest_fe_fleet = yes
+    random = { chance = 33 create_usagi_quest_fe_fleet = yes }
+
+    if = {
+        limit = { host_has_dlc = "Apocalypse" }
+        random = {
+            chance = 10
+            create_fleet = {
+                effect = {
+                    set_owner = prev.owner
+                    create_usagi_quest_fe_colossus = yes
+                    usagi_quest_set_random_location = yes
+                }
+            }
+        }
+    }
+    random = {
+        chance = 25
+        create_fleet = {
+            effect = {
+                set_owner = prev.owner
+                create_usagi_quest_fe_titan = yes
+                usagi_quest_set_random_location = yes
+            }
+        }
+    }
+    while = {
+        count = 3
+        create_fleet = {
+            effect = {
+                set_owner = prev.owner
+                create_usagi_quest_fe_constructor = yes
+                usagi_quest_set_random_location = yes
+            }
+        }
+    }
+}

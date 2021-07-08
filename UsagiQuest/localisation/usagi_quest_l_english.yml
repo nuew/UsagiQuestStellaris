@@ -2,13 +2,17 @@
  usagi_quest_class: "Usagi Quest"
 
  name_list_usagi_quest_name_list_human: "Usagi Quest (Human)"
- name_list_usagi_quest_name_list_human_desc: ""
+ name_list_usagi_quest_name_list_human_desc: "TODO"
  name_list_usagi_quest_name_list_mao: "Usagi Quest (Mao)"
- name_list_usagi_quest_name_list_mao_desc: ""
+ name_list_usagi_quest_name_list_mao_desc: "TODO"
 
- personality_usagi_quest_fe: ""
- personality_usagi_quest_fe_desc: ""
- usagi_quest_fe_awakened: ""
- usagi_quest_fe_awakened_desc: ""
- usagi_quest_subject: ""
- usagi_quest_subject_desc: ""
+ personality_usagi_quest_fe: "Usagi Quest Personality"
+ personality_usagi_quest_fe_desc: "TODO"
+ usagi_quest_fe_awakened: "Usagi Quest Personality (Awakened)"
+ usagi_quest_fe_awakened_desc: "TODO"
+
+ SUBJECT_usagi_quest_subject: "Usagi Quest Subject"
+ SUBJECT_DESC_usagi_quest_subject: "TODO"
+
+ building_usagi_quest_time_gate: "Time-Space Door"
+ building_usagi_quest_time_gate_desc: "TODO"

@@ -19,13 +19,7 @@ usagi_quest_subject = {
 
     potential = {
         is_country_type = default
-        from = {
-            OR = {
-                is_country_type = fallen_empire
-                is_country_type = awakened_fallen_empire
-            }
-            has_country_flag = fallen_empire_usagi            
-        }
+        from = { is_fallen_empire_usagi = yes }
         has_been_declared_crisis = no
     }
 

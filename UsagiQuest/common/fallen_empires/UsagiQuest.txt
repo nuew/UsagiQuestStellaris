@@ -1,5 +1,4 @@
 usagi_quest_fallen_empire = {
-    # FIXME
     graphical_culture = "humanoid_01"
     initializer = "usagi_quest_sol_system_initializer"
 
@@ -84,7 +83,14 @@ usagi_quest_fallen_empire = {
                     influence = 500
                 }
 
-                # TODO initialize global designs here
+                add_global_ship_design = "usagi_quest_ship_colossus"
+                add_global_ship_design = "usagi_quest_ship_massive"
+                add_global_ship_design = "usagi_quest_ship_large"
+                add_global_ship_design = "usagi_quest_ship_small"
+                add_global_ship_design = "usagi_quest_ship_station"
+                add_global_ship_design = "usagi_quest_ship_constructor"
+                add_global_ship_design = "usagi_quest_ship_colonizer"
+                add_global_ship_design = "NAME_FE_Starbase"
             }
         }
     }
