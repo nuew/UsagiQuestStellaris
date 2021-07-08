@@ -173,7 +173,7 @@
     # put those here instead.
     ruler_names = {
         default = {
-            full_names = { "Usagi Tsukino" }
+            full_names = { }
         }
     }
 }

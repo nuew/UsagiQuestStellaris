@@ -79,7 +79,7 @@ usagi_quest_sol_system_initializer = {
             create_country = {
                 name = "NAME_usagi_quest_earth_kingdom"
                 adjective = "NAME_usagi_quest_earth_kingdom"
-                type = default
+                type = primitive
 
                 name_list = "usagi_quest_name_list_human"
                 ship_prefix = "EKS"
@@ -89,7 +89,7 @@ usagi_quest_sol_system_initializer = {
                 origin = origin_default
                 civics = {
                     civic = civic_aristocratic_elite
-                    civic = civic_feudal_realm
+                    civic = civic_landed_nobility
                 }
                 ethos = random
                 flag = random
@@ -101,15 +101,17 @@ usagi_quest_sol_system_initializer = {
                     }
                 }
             } 
+            last_created_country = {
+                set_country_flag = late_medieval_age
+                set_primitive_age = late_medieval_age
+            }
 
             prevent_anomaly = yes
             set_owner = last_created_country
             set_controller = last_created_country
-            set_capital = yes
 
             generate_start_deposits_and_blockers = yes
-            generate_start_buildings_and_districts = yes
-            generate_start_pops = yes
+            setup_primitive_planet = yes
 
             owner_main_species = {
                 set_species_homeworld = PREV
@@ -583,6 +585,7 @@ usagi_quest_sol_neighbor_t1b = {
                 }
             }
         }
+        clear_global_event_target = usagi_quest_mao
     }
 
     neighbor_system = {
@@ -715,9 +718,5 @@ usagi_quest_sol_neighbor_t2b = {
         count = { min = 0 max = 2 }
         orbit_angle = { min = 90 max = 270 }
         orbit_distance = 20
-    }
-
-    init_effect = {
-        clear_global_event_target = usagi_quest_mao
     }
 }
