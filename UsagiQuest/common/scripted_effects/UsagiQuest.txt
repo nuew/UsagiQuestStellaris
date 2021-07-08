@@ -47,7 +47,7 @@ usagi_quest_gen_fe_world = {
         random_list = {
             80 = {
                 create_pop = {
-                    species = owner_main_species
+                    species = last_created_species
                     ethos = random
                 }
             }
